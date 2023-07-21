@@ -1,0 +1,7 @@
+<form method="post" action="{% url 'create_subject' %}" id="subject_form">
+    <div class="data-form">
+  {% csrf_token %} {{subject_form.as_p}}
+  <button type="submit" class="btn btn-primary">Create Subject</button>
+  <label id="close_subject_form" class="close-form-btn">X</label>
+</div>
+</form>
