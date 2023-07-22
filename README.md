@@ -5,6 +5,9 @@ The PVP project is developed using Python and the Django framework. It utilizes 
 ## Hosted project link- (Please click on this link to view the project)
 http://rajpvp.pythonanywhere.com/
 
+## Project Documentation link
+https://docs.google.com/document/d/1AFskQHYp6Bv57lNeAAbDE0bdf6-bozAVNsc2WSFAZi8/edit?usp=sharing
+
 ## TLDR
 
 - **Category class**: Creates categories like SCIENCE, HUMANITIES, ARTS, etc.
