@@ -3,6 +3,9 @@ from ..models import  Category, Test_Conditions, Subject
 from .default_data import Default_Category_Colors
 import random
 
+
+# contains functions to create the default data for the app
+
 def create_default_categories():
     science_category= Category(name='SCIENCE',
                            category_passing_marks=160,

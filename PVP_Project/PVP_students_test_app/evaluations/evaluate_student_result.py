@@ -2,6 +2,7 @@ from ..models import Student, Subject, Category, Test_Conditions
 from ..data_state_handle.default_data import Student_Evaluation_Results
 from .evaluation_strategies import Evaluate_By_Total_Score, Evaluate_By_Marks_In_Category
 
+# This class handles evaluation of each student’s result.
 
 class Evaluate_Results:
 

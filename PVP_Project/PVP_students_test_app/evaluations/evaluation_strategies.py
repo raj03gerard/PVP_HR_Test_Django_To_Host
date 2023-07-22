@@ -2,10 +2,16 @@ from itertools import combinations
 from abc import ABC, abstractmethod
 from ..models import Student, Subject, Category, Test_Conditions
 
+# This is an abstract class that contains definition for the evaluate   
+# method. New evaluation strategies are created from this class
+
 class Evaluation_Strategy(ABC):
     @abstractmethod
     def evaluate( student):
         pass
+
+# This class inherits the Evaluation_Strategy class, to evaluate 
+# the student result based on total_score
 
 class Evaluate_By_Total_Score(Evaluation_Strategy):
     def evaluate( student):
@@ -23,6 +29,9 @@ class Evaluate_By_Total_Score(Evaluation_Strategy):
         else:
             return False
         
+#  This class also inherits the Evaluation_Strategy class, to evaluate 
+#  the student result marks in his category
+
 class Evaluate_By_Marks_In_Category(Evaluation_Strategy):
     def evaluate( student):
         category_pass_marks= 0

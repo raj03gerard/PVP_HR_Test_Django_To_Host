@@ -1,5 +1,8 @@
 from enum import Enum
 
+# contains some default data like enums for Student_Evaluation_Results,
+# colors for the different categories( Default_Category_Colors) , etc
+
 
 default_total_passing_marks=300
 

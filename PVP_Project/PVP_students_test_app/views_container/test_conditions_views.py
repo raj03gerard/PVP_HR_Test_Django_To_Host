@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from ..models import Category, Test_Conditions
 from ..forms import Category_form
 
+# This file handles updation of test conditions
 
 def update_test_condition_through_form(request):
     

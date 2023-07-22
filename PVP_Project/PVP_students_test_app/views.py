@@ -6,6 +6,8 @@ from .evaluations.evaluate_student_result import Evaluate_Results
 from .data_state_handle.default_data_creation import create_default_test_condition, create_default_categories
 from .data_state_handle.default_data import Default_Category_Colors
 
+# The starting point for the execution of the app, that handles 
+# the route to the home page(index()).
 
 def index(request):
 
@@ -36,6 +38,9 @@ def index(request):
     return render (request, template_name, context)
 
 
+# The default_data_check() function checks whether the app
+# has some default data in it as soon as the home page loads
+
 def default_data_check():
     if Category.objects.all().count()>0:
         if(Test_Conditions.objects.all().count()<=0):
@@ -44,6 +49,9 @@ def default_data_check():
     else:
         create_default_categories()
         create_default_test_condition()
+
+
+# The get_default_colors() function gets the default color schemes for the app
 
 def get_default_colors(request):
     if request.method== 'GET':

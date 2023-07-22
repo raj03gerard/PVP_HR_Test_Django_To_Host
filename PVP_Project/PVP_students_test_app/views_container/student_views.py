@@ -3,6 +3,9 @@ from django.http import HttpResponse, JsonResponse
 from ..models import Student, Subject
 from ..forms import Student_form
 
+
+# Handles creation of new students
+
 def create_student(request):
     default_subjects_list= Subject.objects.all()
     subject_list=[]

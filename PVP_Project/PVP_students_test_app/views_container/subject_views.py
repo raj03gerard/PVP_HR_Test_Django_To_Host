@@ -3,6 +3,8 @@ from django.http import HttpResponse, JsonResponse
 from ..models import Subject
 from ..forms import Subject_form
 
+#  Handles creation of new subjects
+
 def create_subject(request):
     template_name='home_page.html'
     
