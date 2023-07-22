@@ -3,6 +3,11 @@ from .data_state_handle.default_data import Student_Evaluation_Results
 from .data_state_handle.default_data import Default_Category_Colors
 import random
 
+# This file contains the classes for Student, Subject, Category and Test_Conditions. 
+# All of these classes inherit from the Django models.Model class, which allows them
+# to be created as individual tables in the database,
+
+
 class Category(models.Model):
     name=models.CharField(max_length=200)
     category_passing_marks= models.IntegerField(default=100)
@@ -21,7 +26,7 @@ class Subject(models.Model):
     name = models.CharField(max_length=100)
     category= models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     def __str__(self):
-        return f"{self.name} "
+        return f"{self.name} {self.id} "
     
 
 

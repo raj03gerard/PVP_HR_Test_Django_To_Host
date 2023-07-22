@@ -15,5 +15,13 @@ def create_subject(request):
             return redirect('index') 
     return redirect('index')
 
+def delete_subject(request, sub_id):
+    print(sub_id)
+    if request.method== 'POST':
+        subject_to_delete= Subject.objects.get(id= sub_id)
+        subject_to_delete.delete()
+        return redirect('index')
+    return redirect('index')
+
 
 
