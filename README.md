@@ -2,8 +2,8 @@
 
 # PVP Project Documentation-
 
-###The project has been made with Python, using the Django framework. 
-###It uses Python, along with HTML/CSS/JS for the frontend, and SQLite database to store the data.
+### The project has been made with Python, using the Django framework. 
+### It uses Python, along with HTML/CSS/JS for the frontend, and SQLite database to store the data.
 
 TLDR: 
 
