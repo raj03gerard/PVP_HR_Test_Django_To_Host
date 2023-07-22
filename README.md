@@ -2,6 +2,9 @@
 
 The PVP project is developed using Python and the Django framework. It utilizes Python for backend functionality, HTML/CSS/JS for the frontend, and SQLite database for data storage.
 
+## Hosted project link- 
+http://rajpvp.pythonanywhere.com/
+
 ## TLDR
 
 - **Category class**: Creates categories like SCIENCE, HUMANITIES, ARTS, etc.
@@ -47,11 +50,3 @@ PVP_students_test_app/        # Main project directory
 |-- Migrations/               # Contains Django-generated files during data migration
 ```
 
-## How to Use
-
-- To get started, make sure you have Python and Django installed.
-- Clone the project repository.
-- Navigate to the project directory and run the development server.
-- Access the app via the provided URLs.
-
-Feel free to explore and modify the project as needed!
