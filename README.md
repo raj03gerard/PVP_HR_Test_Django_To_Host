@@ -2,7 +2,7 @@
 
 The PVP project is developed using Python and the Django framework. It utilizes Python for backend functionality, HTML/CSS/JS for the frontend, and SQLite database for data storage.
 
-## Hosted project link- (Please clcik on this link to view the project)
+## Hosted project link- (Please click on this link to view the project)
 http://rajpvp.pythonanywhere.com/
 
 ## TLDR
