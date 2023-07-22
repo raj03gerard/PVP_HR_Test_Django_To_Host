@@ -1,0 +1,47 @@
+from django import forms
+from .models import Subject,Student, Category
+
+class Category_form(forms.ModelForm):
+    class Meta:
+        model= Category
+        fields= ['name', 'category_passing_marks',]
+
+        widgets= {
+            'name':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter category name'}),
+            'category_passing_marks':forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter passing marks'}),
+        }
+
+        labels={
+            'name': 'Category Name:',
+            'category_passing_marks': 'Category passing marks',
+        }
+class Subject_form(forms.ModelForm):
+    class Meta:
+        model= Subject
+        fields=['name', 'category']
+
+        widgets= {
+            'name':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter subject name'}),
+            'category':forms.Select(attrs={'class': 'form-dropdown'}),
+            
+        }
+
+        labels={
+            'name': 'Subject Name:',
+            'category': 'Subject Category',
+        }
+
+class Student_form(forms.ModelForm):
+    class Meta:
+        model= Student
+        fields= ['name', 'category']
+
+        widgets= {
+            'name':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter student name'}),
+            'category':forms.Select(attrs={'class': 'form-dropdown'}),  
+        }
+
+        labels={
+            'name': 'Student Name:',
+            'category': 'Student Category',
+        }
