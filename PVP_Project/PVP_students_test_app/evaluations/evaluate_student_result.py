@@ -12,14 +12,18 @@ class Evaluate_Results:
     def evaluate_all_students(self):
         
         students_list= Student.objects.all()
+        no_of_students_passed=0
         for student in students_list:
             has_passed= self.evaluate_student(student)
             if has_passed:
                 student.evaluation_result= Student_Evaluation_Results.PASS.value
+                no_of_students_passed+=1
             else:
                 student.evaluation_result=Student_Evaluation_Results.FAIL.value
             
             student.save()
+        
+        return no_of_students_passed
 
 
     def evaluate_student(self,student):

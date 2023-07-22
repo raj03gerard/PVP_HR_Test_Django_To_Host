@@ -31,9 +31,14 @@
 
       </div>
       <div class="results-container">
-       
-        <h1 class="results-label">Student Results</h1>
+        <br>
 
+        <h1 class="results-label">Student Results</h1>
+        <div class="students-overall-result">
+          <div class="overall-students-passed-label">No of students passed: </div>
+          <div class="overall-students-passed-value">{{no_of_students_passed}} </div>
+
+        </div>
         {% for student in students %}
         <div class="student-result-data">
           <div class="results-label">

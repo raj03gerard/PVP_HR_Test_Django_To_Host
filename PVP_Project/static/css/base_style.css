@@ -58,6 +58,18 @@
 .student-result-data ul li{
     list-style: none;
 }
+.students-overall-result{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.students-overall-result .overall-students-passed-label{
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
 .student-result-data .results-label{
     display: flex;
     gap: 20px;

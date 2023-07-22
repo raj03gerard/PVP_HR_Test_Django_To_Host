@@ -1,16 +1,20 @@
 
 from ..models import  Category, Test_Conditions, Subject
-
-
+from .default_data import Default_Category_Colors
+import random
 
 def create_default_categories():
     science_category= Category(name='SCIENCE',
-                           category_passing_marks=160)
+                           category_passing_marks=160,
+                               color=random.choice(list(Default_Category_Colors)).value)
+ 
     science_category.save()
-
+    print(science_category)
     humanities_category= Category(name='HUMANITIES',
-                           category_passing_marks=160)
+                           category_passing_marks=160,
+                                  color=random.choice(list(Default_Category_Colors)).value)
     humanities_category.save()
+    print(humanities_category)
     create_default_subjects()
 
 def create_default_subjects():

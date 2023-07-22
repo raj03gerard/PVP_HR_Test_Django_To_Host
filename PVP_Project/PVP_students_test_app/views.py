@@ -19,6 +19,9 @@ def index(request):
     subjects= Subject.objects.all()
     categories= Category.objects.all()
     test_condition= Test_Conditions.objects.first()
+
+    no_of_students_passed= Evaluate_Results().evaluate_all_students()
+
     context={'students': students,
              'categories':categories,
              'subjects':subjects,
@@ -26,9 +29,10 @@ def index(request):
              'subject_form':subject_form,
              'student_form':student_form,
              'test_condition':test_condition,
+             'no_of_students_passed': no_of_students_passed,
              }
     
-    Evaluate_Results().evaluate_all_students()
+
     return render (request, template_name, context)
 
 
