@@ -34,3 +34,11 @@ def create_student(request):
     
     return redirect('index')
 
+
+def delete_student(request, stud_id):
+    
+    if request.method == 'POST':
+        student_to_delete = Student.objects.get(id=stud_id)
+        student_to_delete.delete()
+        return redirect('index')
+    return redirect('index')

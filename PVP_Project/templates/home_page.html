@@ -65,6 +65,11 @@
               <div class="student-result">
                 {{student.evaluation_result}}
               </div>
+              <button class="delete-student" value="{{student.id}}">
+                <span class="material-symbols-outlined">
+                  delete
+                </span>
+              </button>
             </div>
             <ul class="subjects-container">
               {% for subject_data in student.subjects %}
@@ -164,6 +169,7 @@
 <script src="{% static 'js/create_subject.js' %}"></script>
 <script src="{% static 'js/delete_subject.js' %}"></script>
 <script src="{% static 'js/create_student.js' %}"></script>
+<script src="{% static 'js/delete_student.js' %}"></script>
 <script src="{% static 'js/toggle_popup_forms.js' %}"></script>
 <script src="{% static 'js/toggle_sidebar.js' %}"></script>
 <script src="{% static 'js/colorize_elements.js' %}"></script>

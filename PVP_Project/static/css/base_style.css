@@ -78,6 +78,19 @@
     padding: 20px;
     border-radius: 20px;
 }
+.student-result-data .delete-student{
+    border: none;
+    padding-bottom: 10px;
+}
+.student-result-data .delete-student .material-symbols-outlined{
+    font-size: 15px;
+}
+.student-result-data .delete-student:hover{
+    cursor: pointer;
+}
+.student-result-data .delete-student:focus{
+    outline: none;
+}
 .student-result-data ul{
     margin: 0;
     padding: 0;

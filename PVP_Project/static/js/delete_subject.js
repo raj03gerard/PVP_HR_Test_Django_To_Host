@@ -1,5 +1,4 @@
 $('.delete_subject').click(function (){
-    console.log("HIIII")
     var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
     $.ajax({
             url: `/delete_subject/${$(this).val()}/`,
@@ -16,3 +15,5 @@ $('.delete_subject').click(function (){
     });
     location.reload();
 })
+
+
