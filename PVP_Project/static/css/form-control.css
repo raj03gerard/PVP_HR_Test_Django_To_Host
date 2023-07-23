@@ -10,13 +10,12 @@
     padding: 20px;
     border-radius: 20px;
     position: relative;
-    z-index: 100;
 }
 .popup-form {
     display: none;
     position: fixed;
     top: 50%;
-    left: 30%;
+    left: 35%;
     transform: translate(-50%, -50%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     border-radius: 20px;
@@ -37,7 +36,6 @@
 .test_conditions_close_btn{
     top: -50px;
     right: 0;
-    z-index: 150;
 }
 .test-conditions-wrapper{
     position: relative;

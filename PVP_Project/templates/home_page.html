@@ -14,124 +14,148 @@
   </head>
   <body class="main-body">
     <div class="left-section">
-      <div class="forms-container">
-        <label id="create_new_category_btn" class="btn btn-info">Create new Category</label>
-        <div class="category-form-container popup-form" id="category-form-container">
-          {% include 'forms/create_category_form.html' %}
-        </div>
-
-        <label id="create_new_subject_btn" class="btn btn-info">Create new Subject</label>
-        <div class="subject-form-container popup-form" id="subject-form-container">
-          {% include 'forms/create_subject_form.html' %}
-        </div>
-
-        <label id="create_new_student_btn" class="btn btn-info">Create new Student</label>
-        <div class="student-form-container popup-form" id="student-form-container">
-          {% include 'forms/create_student_form.html' %}
-        </div>
+      <div class="wrapper">
+        <div class="forms-container">
+          <button id="create_new_category_btn" class="btn btn-info">Create new Category</button>
+          <div class="category-form-container popup-form" id="category-form-container">
+            {% include 'forms/create_category_form.html' %}
+          </div>
+        
+          <button id="create_new_subject_btn" class="btn btn-info">Create new Subject</button>
+          <div class="subject-form-container popup-form" id="subject-form-container">
+            {% include 'forms/create_subject_form.html' %}
+          </div>
           
-
-      </div>
-      <div class="results-container">
-        <br>
-
-        <h1 class="results-label">Student Results</h1>
-        <div class="students-overall-result">
-          <div class="overall-students-passed-label">No of students passed: </div>
-          <div class="overall-students-passed-value">{{no_of_students_passed}} </div>
-
-        </div>
-        {% for student in students %}
-        <div class="student-result-data">
-          <div class="results-label">
-            <div class="student-info-wrapper">
-              <div class="student-name">
-                {{ student.name }} 
-              </div>
-              <div class="student-category category-field">
-                {{student.category.name}}
-              </div>
-            </div>
-            <div class="student-result">
-              {{student.evaluation_result}}
-            </div>
+          {% if no_of_students >= 1000 %}
+          <button id="create_new_student_btn" class="btn btn-info" disabled>Create new Student</button>
+          {%else%}
+          <button id="create_new_student_btn" class="btn btn-info" >Create new Student</button>
+          {%endif %}
+          <div class="student-form-container popup-form" id="student-form-container">
+            {% include 'forms/create_student_form.html' %}
           </div>
-          <ul class="subjects-container">
-            {% for subject_data in student.subjects %}
-            
-            <li>
+        
+        
+        </div>
+        <div class="results-container">
+          <br>
+        
+          <h3 class="results-label">Student Results</h3>
+          <div class="students-overall-result">
+            <div class="overall-students-passed-label">Total no of students( Max 1000): </div>
+            <div class="overall-students-info">{{no_of_students}} </div>
+        
+          </div>
+          <div class="students-overall-result">
+            <div class="overall-students-passed-label">No of students passed: </div>
+            <div class="overall-students-info">{{no_of_students_passed}} </div>
+        
+          </div>
+          {% for student in students %}
+          <div class="student-result-data">
+            <div class="results-label">
+              <div class="student-info-wrapper">
+                <div class="student-name">
+                  {{ student.name }}
+                </div>
+                <div class="student-category category-field">
+                  {{student.category.name}}
+                </div>
+              </div>
+              <div class="student-result">
+                {{student.evaluation_result}}
+              </div>
+            </div>
+            <ul class="subjects-container">
+              {% for subject_data in student.subjects %}
+        
+              <li>
+                <div class="subject-info">
+                  <div class="subject-label">
+                    {{ subject_data.subject }}:
+                  </div>
+                  <div class="subject-marks">
+                    <div class="sub-marks">
+                      {{ subject_data.marks }}
+                    </div>
+                    <div class="sub-category category-field">
+                      {{subject_data.category}}
+                    </div>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="wrapper">
+          <div class="middle-section">
+            <div class="subjects-info-container">
+              <div class="section-label">
+                Subjects
+              </div>
+              {% for subject in subjects %}
               <div class="subject-info">
-                <div class="subject-label">
-                  {{ subject_data.subject }}:
+                <div class="subject-name">
+                  {{subject.name}}
                 </div>
-                <div class="subject-marks">
-                  <div class="sub-marks">
-                    {{ subject_data.marks }}
-                  </div>
-                  <div class="sub-category category-field">
-                    {{subject_data.category}}
-                  </div>
+                <div class="subject-category category-field">
+                  {{subject.category.name}}
                 </div>
+                <button class="subject-delete-icon delete_subject" value="{{subject.id}}">
+                  <span class="material-symbols-outlined">
+                    delete
+                  </span>
+                </button>
               </div>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% endfor %}
+              {% endfor %}
+            </div>
+</div>
       </div>
     </div>
-    <div class="middle-section">
-      <div class="subjects-info-container">
-        <div class="section-label">
-          Subjects
-        </div>
-        {% for subject in subjects %}
-        <div class="subject-info">
-            <div class="subject-name">
-              {{subject.name}}
-            </div>
-            <div class="subject-category category-field">
-              {{subject.category.name}}
-            </div>
-            <button class="subject-delete-icon delete_subject"  value="{{subject.id}}">
-              <span class="material-symbols-outlined">
-                delete
-              </span>
-            </button>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="right-section">
+  
+    <div class="right-section" id="right_sidebar">
       <div class="section-label">
         Test conditions
       </div>
-      <div class="test-conditions-container">
-        <div class="test-condition">
-          <div class="condition-label">
-            Total Passing marks:
+      <div class="section-contents">
+        <div class="test-conditions-container">
+          <div class="test-condition">
+            <div class="condition-label">
+              Total Passing marks:
+            </div>
+            <div class="condition-info">
+              {{test_condition.total_passing_marks}}
+            </div>
           </div>
-          <div class="condition-info">
-            {{test_condition.total_passing_marks}}
+          <div class="test-condition category-conditions">
+            <div class="condition-label">
+              Passing marks by category:
+            </div>
+            {% for cat_marks in test_condition.category_passing_marks%}
+            <div class="cat_item">
+              {{cat_marks.category}}
+              {{cat_marks.pass_marks}}
+            </div>
+            {% endfor%}
           </div>
         </div>
-        <div class="test-condition category-conditions">
-          <div class="condition-label">
-            Passing marks by category:
-          </div>
-          {% for cat_marks in test_condition.category_passing_marks%}
-          <div class="cat_item">
-            {{cat_marks.category}}
-            {{cat_marks.pass_marks}}
-          </div>
-          {% endfor%}
+        <button class="btn btn-secondary change_test_conditions_btn" id="change_test_conditions_btn"> Change Test conditions</button>
+        <div class="test-conditions-form-container" id="test-conditions-form-container">
+          {% include 'forms/update_test_conditions_form.html' %}
         </div>
       </div>
-      <button class="btn btn-secondary change_test_conditions_btn" id="change_test_conditions_btn"> Change Test conditions</button>
-      <div class="test-conditions-form-container" id="test-conditions-form-container">
-        {% include 'forms/update_test_conditions_form.html' %}
+      <div class="expand-collapse-btn">
+        <span class="material-symbols-outlined" id="collapse-sidebar-btn">
+          chevron_right
+        </span>
+        <span class="material-symbols-outlined" id="expand-sidebar-btn">
+          chevron_left
+        </span>
       </div>
-    </div>
+      </div>
   </body>
 </html>
 
@@ -141,6 +165,7 @@
 <script src="{% static 'js/delete_subject.js' %}"></script>
 <script src="{% static 'js/create_student.js' %}"></script>
 <script src="{% static 'js/toggle_popup_forms.js' %}"></script>
+<script src="{% static 'js/toggle_sidebar.js' %}"></script>
 <script src="{% static 'js/colorize_elements.js' %}"></script>
 
 

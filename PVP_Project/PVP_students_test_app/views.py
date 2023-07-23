@@ -31,6 +31,7 @@ def index(request):
              'subject_form':subject_form,
              'student_form':student_form,
              'test_condition':test_condition,
+             'no_of_students': students.count(),
              'no_of_students_passed': no_of_students_passed,
              }
     
