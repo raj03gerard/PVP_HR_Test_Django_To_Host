@@ -13,6 +13,7 @@ def create_subject(request):
         subject_form = Subject_form(request.POST)
         if (subject_form.is_valid):
             new_subject = subject_form.save(commit=False)
+            new_subject.name = new_subject.name.capitalize()
             exisiting_subject = Subject.objects.filter(name=new_subject.name)
             if exisiting_subject.exists():
                 print("Subject already exists")

@@ -49,3 +49,11 @@ class Student_form(forms.ModelForm):
             'name': 'Enter Student Name:',
             'category': 'Student Category',
         }
+
+    def __init__(self, *args, **kwargs):
+        super(Student_form, self).__init__(*args, **kwargs)
+        self.fields['name'].initial = f"Student_{get_total_students()+1}"
+
+
+def get_total_students():
+    return Student.objects.all().count()

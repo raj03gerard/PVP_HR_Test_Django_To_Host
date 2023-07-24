@@ -15,9 +15,9 @@ def index(request):
     default_data_check()
 
     template_name = 'home_page.html'
-    category_form = Category_form(request.POST)
-    subject_form = Subject_form(request.POST)
-    student_form = Student_form(request.POST, initial={'name': 'stud_name'})
+    category_form = Category_form()
+    subject_form = Subject_form()
+    student_form = Student_form()
     students = Student.objects.all()
     subjects = Subject.objects.all()
     categories = Category.objects.all()

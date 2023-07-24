@@ -21,5 +21,12 @@ $(document).ready(function () {
     })
 });
 
+$('.subject-field').focus(function (){
+    $(this).val("");
+})
 
-
+$('.subject-field').blur(function() {
+        if ($(this).val() === '') {
+            $(this).val('0');
+        }
+    });
