@@ -12,7 +12,7 @@ def create_student(request):
     if request.method == 'POST':
         student_form = Student_form(request.POST)
         if (student_form.is_valid):
-
+            flag = 0
             instance = student_form.save(commit=True)
 
             for sub in default_subjects_list:
@@ -22,21 +22,27 @@ def create_student(request):
                     verified_marks = int(unverified_marks)
 
                     if verified_marks > 100 or verified_marks < 0:
-                        stud_obj = Student.objects.get(id=instance.id)
-                        stud_obj.delete()
+                        verified_marks = int(unverified_marks) if int(unverified_marks) >= 0 and int(
+                            unverified_marks) <= 100 else max(min(int(unverified_marks), 100), 0)
+                        instance.delete()
+                        flag = 1
                         return JsonResponse({'message': 'Invalid marks: Please enter all marks between 0 and 100'})
-                #     verified_marks = int(unverified_marks) if int(unverified_marks) >= 0 and int(
-                #         unverified_marks) <= 100 else max(min(int(unverified_marks), 100), 0)
                     else:
                         subject_list.append({'subject': sub.name,
                                              'marks': verified_marks,
                                              'category': sub.category.name,
                                              })
-            stud_obj = Student.objects.get(id=instance.id)
-            stud_obj.subjects = subject_list
-            stud_obj.save()
-
-            return JsonResponse({'message': 'New Student created'})
+                else:
+                    flag = 1
+                    instance.delete()
+            if flag == 0:
+                stud_obj = Student.objects.get(id=instance.id)
+                stud_obj.subjects = subject_list
+                stud_obj.save()
+                print(f"flag= {flag}")
+                return JsonResponse({'message': 'New Student created'})
+            else:
+                return JsonResponse({'message': 'Invalid marks: Please enter all marks between 0 and 100'})
 
     return JsonResponse({'message': 'Could not create new Student'})
 
