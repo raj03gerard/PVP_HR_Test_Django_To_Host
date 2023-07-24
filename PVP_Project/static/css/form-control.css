@@ -36,6 +36,7 @@
 .test_conditions_close_btn{
     top: -50px;
     right: 0;
+    font-size: 16px;
 }
 .test-conditions-wrapper{
     position: relative;
