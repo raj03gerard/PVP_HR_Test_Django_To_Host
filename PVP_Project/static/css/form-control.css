@@ -32,6 +32,7 @@
     border-radius: 50%;
     padding-left: 10px;
     padding-top: 2px;
+    font-size: 16px;
 }
 .test_conditions_close_btn{
     top: -50px;

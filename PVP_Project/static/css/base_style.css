@@ -177,6 +177,7 @@
 /* Test conditions section start */
 .test-conditions-container{
     padding: 20px;
+    font-size: 12px;
 }
 .change_test_conditions_btn{
     margin-left: 20px;
@@ -184,6 +185,7 @@
 .test-conditions-form-container{
     display: none;
     padding: 20px;
+    font-size: 12px;
 }
 .test-condition{
     display: flex;
