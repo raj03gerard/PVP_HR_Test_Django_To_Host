@@ -14,11 +14,13 @@
     border-radius: 20px;
     position: fixed;
     width: 450px;
+    height: 680px;
     right: 10px;
     top:40px;
     padding: 10px 5px;
     background-color: #c7d2e1;
     transition: all 0.1s linear;
+    overflow-y: auto;
 }
 .section-label{
     padding: 5px 10px;
