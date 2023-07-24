@@ -29,7 +29,7 @@ https://docs.google.com/document/d/1AFskQHYp6Bv57lNeAAbDE0bdf6-bozAVNsc2WSFAZi8/
 PVP_Project/                  # Contains the project files
 |-- templates/                # Contains the HTML files
 |-- static/                   # Contains all the CSS/JS files
-|-- **PVP_Students_Test_App**/# Main app for this project that contains the Python modules/classes
+|-- PVP_Students_Test_App/    # Main app for this project that contains the Python modules/classes
 |   |-- urls.py               # Contains routing information for different URLs
 |   |-- views.py              # Starting point for the execution of the app
 |   |-- Views_container/      # Contains other views files for handling functionalities
