@@ -26,13 +26,13 @@ https://docs.google.com/document/d/1AFskQHYp6Bv57lNeAAbDE0bdf6-bozAVNsc2WSFAZi8/
 ## Project Directory Structure
 
 ```
-PVP_students_test_app/        # Main project directory
+PVP_Project/                  # Contains the project files
 |-- templates/                # Contains the HTML files
 |-- static/                   # Contains all the CSS/JS files
-|-- Modules/                  # Contains the Python modules/classes
+|-- **PVP_Students_Test_App**/# Main app for this project that contains the Python modules/classes
 |   |-- urls.py               # Contains routing information for different URLs
 |   |-- views.py              # Starting point for the execution of the app
-|   |-- Views_container/      # Contains other views files handling functionalities
+|   |-- Views_container/      # Contains other views files for handling functionalities
 |   |   |-- category_views.py # Handles creation of new categories
 |   |   |-- student_views.py  # Handles creation of new students
 |   |   |-- subject_views.py  # Handles creation of new subjects
