@@ -10,12 +10,13 @@ $(document).ready(function () {
             data: formData,
             success: function (response) { 
                 console.log(response['message'])
-                alert(response['message'])
+                alert(response['message']);
+                location.reload();
             },
             error: function () {
                 console.log('Error submitting subject form.');
             }
         });
-        location.reload();
+        
     })
 });

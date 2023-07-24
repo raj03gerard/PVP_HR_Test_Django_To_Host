@@ -9,12 +9,13 @@ $(document).ready(function () {
             type: 'POST',
             data: formData,
             success: function (response) { 
-                alert(response['message'])
+                alert(response['message']);
+                location.reload();
             },
             error: function () {
                 console.log('Error submitting category form.');
             }
         });
-        location.reload();
+        
     })
 });

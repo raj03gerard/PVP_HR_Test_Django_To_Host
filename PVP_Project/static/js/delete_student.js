@@ -10,10 +10,11 @@ $('.delete-student').click(function () {
         success: function () {
           alert("Student deleted");
           console.log("Student deleted");
+          location.reload();
         },
         error: function () {
           alert('Error deleting student');
         }
       });
-      location.reload();
+      
     })
