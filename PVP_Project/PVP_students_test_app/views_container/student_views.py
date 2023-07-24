@@ -30,7 +30,9 @@ def create_student(request):
             stud_obj.subjects = subject_list
             stud_obj.save()
 
-    return redirect('index')
+            return JsonResponse({'message': 'New Student created'})
+
+    return JsonResponse({'message': 'Could not create new Student'})
 
 
 def delete_student(request, stud_id):

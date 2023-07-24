@@ -1,14 +1,20 @@
 $('#create_new_category_btn').click(function(){
-    $('#category-form-container').toggle();
+  $('#category-form-container').toggle();
+  $('#subject-form-container').css('display', 'none');
+  $('#student-form-container').css('display', 'none');
 })
   
 
 $('#create_new_subject_btn').click(function(){
-    $('#subject-form-container').toggle();
+  $('#subject-form-container').toggle();
+  $('#category-form-container').css('display', 'none');
+  $('#student-form-container').css('display', 'none');
   })
 
 $('#create_new_student_btn').click(function(){
-    $('#student-form-container').toggle();
+  $('#student-form-container').toggle();
+  $('#category-form-container').css('display', 'none');
+  $('#subject-form-container').css('display', 'none');
 })
   
 

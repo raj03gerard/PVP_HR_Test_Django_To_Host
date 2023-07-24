@@ -8,9 +8,8 @@ $(document).ready(function () {
             url: $(this).attr('action'),
             type: 'POST',
             data: formData,
-            success: function () { 
-                console.log("Category sent");
-                
+            success: function (response) { 
+                alert(response['message'])
             },
             error: function () {
                 console.log('Error submitting category form.');

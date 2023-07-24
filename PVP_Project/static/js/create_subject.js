@@ -8,8 +8,9 @@ $(document).ready(function () {
             url: $(this).attr('action'),
             type: 'POST',
             data: formData,
-            success: function () { 
-                console.log("Subject sent");
+            success: function (response) { 
+                console.log(response['message'])
+                alert(response['message'])
             },
             error: function () {
                 console.log('Error submitting subject form.');

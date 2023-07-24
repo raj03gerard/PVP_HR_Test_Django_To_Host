@@ -12,8 +12,15 @@ def create_subject(request):
     if request.method == 'POST':
         subject_form = Subject_form(request.POST)
         if (subject_form.is_valid):
-            subject_form.save()
-            return redirect('index')
+            new_subject = subject_form.save(commit=False)
+            exisiting_subject = Subject.objects.filter(name=new_subject.name)
+            if exisiting_subject.exists():
+                print("Subject already exists")
+                return JsonResponse({'message': f"Subject already exists"})
+
+            else:
+                new_subject.save()
+                return JsonResponse({'message': 'New subject added'})
     return redirect('index')
 
 

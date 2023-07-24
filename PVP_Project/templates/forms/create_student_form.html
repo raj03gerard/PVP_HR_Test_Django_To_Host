@@ -1,14 +1,25 @@
-<form method="post" action="{% url 'create_student' %}" id="create_student_form">
-<div class="form-group flex-column data-form">
+<form
+  method="post"
+  action="{% url 'create_student' %}"
+  id="create_student_form"
+>
+  <div class="form-group flex-column data-form">
     {% csrf_token %} {{student_form.as_p}}
 
     <div class="subject-fields">
-        {% for subject in subjects%}
-        <label for="{{subject.name}}"></label>{{subject.name}}
-        <input type="number" name="{{subject.name}}" id="{{subject.name}}" placeholder="Enter marks for{{subject.name}}"/>
-        {% endfor %}
+      {% for subject in subjects%}
+      <label for="{{subject.name}}"></label>{{subject.name}}
+      <input
+        type="number"
+        name="{{subject.name}}"
+        id="{{subject.name}}"
+        class="form-control"
+        placeholder="Enter marks for {{subject.name}}"
+        value="0"
+      />
+      {% endfor %}
     </div>
     <button type="submit" class="btn btn-primary">Create Student</button>
     <label id="close_student_form" class="close-form-btn">X</label>
-</div>
+  </div>
 </form>

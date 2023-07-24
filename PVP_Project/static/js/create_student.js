@@ -8,15 +8,16 @@ $(document).ready(function () {
             url: $(this).attr('action'),
             type: 'POST',
             data: formData,
-            success: function () { 
-                console.log("Student data sent");
+            success: function (response) { 
+                alert(response['message'])
             },
             error: function () {
                 console.log('Error submitting student form.');
             }
         }); 
+        
         location.reload();
-        console.log("PLEASE RELOAD!!!");
+        
     })
 });
 
