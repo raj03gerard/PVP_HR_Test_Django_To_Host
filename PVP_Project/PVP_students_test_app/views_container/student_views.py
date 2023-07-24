@@ -13,7 +13,7 @@ def create_student(request):
         student_form = Student_form(request.POST)
         if (student_form.is_valid):
 
-            instance = student_form.save(commit=False)
+            instance = student_form.save(commit=True)
 
             for sub in default_subjects_list:
                 unverified_marks = request.POST.get(sub.name)
@@ -22,6 +22,8 @@ def create_student(request):
                     verified_marks = int(unverified_marks)
 
                     if verified_marks > 100 or verified_marks < 0:
+                        stud_obj = Student.objects.get(id=instance.id)
+                        stud_obj.delete()
                         return JsonResponse({'message': 'Invalid marks: Please enter all marks between 0 and 100'})
                 #     verified_marks = int(unverified_marks) if int(unverified_marks) >= 0 and int(
                 #         unverified_marks) <= 100 else max(min(int(unverified_marks), 100), 0)
@@ -30,13 +32,11 @@ def create_student(request):
                                              'marks': verified_marks,
                                              'category': sub.category.name,
                                              })
-                        stud_obj = Student.objects.get(id=instance.id)
-                        stud_obj.subjects = subject_list
-                        stud_obj.save()
+            stud_obj = Student.objects.get(id=instance.id)
+            stud_obj.subjects = subject_list
+            stud_obj.save()
 
-                        return JsonResponse({'message': 'New Student created'})
-                else:
-                    return JsonResponse({'message': 'Invalid marks: Please enter all marks between 0 and 100'})
+            return JsonResponse({'message': 'New Student created'})
 
     return JsonResponse({'message': 'Could not create new Student'})
 

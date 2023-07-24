@@ -8,10 +8,11 @@ $('.delete-student').click(function () {
           xhr.setRequestHeader("X-CSRFToken", csrfToken);
         },
         success: function () {
+          alert("Student deleted");
           console.log("Student deleted");
         },
         error: function () {
-          console.log('Error deleting student');
+          alert('Error deleting student');
         }
       });
       location.reload();

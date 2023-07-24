@@ -6,11 +6,11 @@ $('.delete_subject').click(function (){
             beforeSend: function(xhr) {
             xhr.setRequestHeader("X-CSRFToken", csrfToken);
              },
-            success: function () { 
-                console.log("Subject deleted");
+            success: function (response) { 
+                alert(response['message']);
             },
-            error: function () {
-                console.log('Error deleting subject');
+            error: function (response) {
+                alert('Error deleting subject');
             }
     });
     location.reload();

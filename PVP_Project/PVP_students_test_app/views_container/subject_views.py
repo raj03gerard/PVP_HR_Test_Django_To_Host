@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
-from ..models import Subject
+from ..models import Subject, Student
 from ..forms import Subject_form
 
 #  Handles creation and deletion of subjects
@@ -29,6 +29,19 @@ def delete_subject(request, sub_id):
     print(sub_id)
     if request.method == 'POST':
         subject_to_delete = Subject.objects.get(id=sub_id)
+
+        delete_subject_from_students(subject_to_delete)
         subject_to_delete.delete()
-        return redirect('index')
-    return redirect('index')
+
+        return JsonResponse({'message': 'Subject deleted'})
+    return JsonResponse({'message': 'Error deleting subject'})
+
+
+def delete_subject_from_students(subject_to_delete):
+    students_list = Student.objects.all()
+    for student in students_list:
+        subject_list = student.subjects
+        for subject in subject_list:
+            if subject['subject'] == subject_to_delete.name:
+                subject_list.remove(subject)
+            student.save()
