@@ -10,6 +10,23 @@ http://rajpvp.pythonanywhere.com/
 ## Project Documentation link
 https://docs.google.com/document/d/1AFskQHYp6Bv57lNeAAbDE0bdf6-bozAVNsc2WSFAZi8/edit?usp=sharing
 
+## Summary
+
+  Students can pass if the total of their marks is more than the Total Passing marks **AND** if the student has obtained more than the total passing marks in the   category that he belongs to. 
+  For eg, if **HUMANITIES** category has a passing mark of 160, then a student that belongs to **HUMANITIES** must get a total score >=160 in **HUMANITIES** subjects. He should also get a total marks >= Total Passing Marks in order to pass.
+  
+- You can enter student data by clicking on **Create New Student**
+- Each student can belong to a **category**, eg- **HUMANITIES, SCIENCES** etc.
+  
+- Each student has subjects and marks
+- Each subject can also belong to a **category**, eg- **HUMANITIES, SCIENCES** etc.
+
+- You can create new subjects by clicking on **Create New Subject**
+- You can delete a subject by clicking on the **Delete Icon** near a subject
+
+- You can create new categories( like **FINE ARTS** etc) by clicking on **Create New Category**.
+- You can edit testing conditions by clikcing on **Change Test Conditions**
+
 ## TLDR
 
 - **Category class**: Creates categories like SCIENCE, HUMANITIES, ARTS, etc.
