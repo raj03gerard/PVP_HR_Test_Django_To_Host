@@ -47,5 +47,9 @@ class Test_Conditions(models.Model):
     total_passing_marks = models.IntegerField(default=300)
     category_passing_marks = models.JSONField(null=True, default=list)
 
+    def save(self, *args, **kwargs):
+        self.pk = 1  # Ensures only one instance of this model exists
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"total_passing_marks: {self.total_passing_marks}"

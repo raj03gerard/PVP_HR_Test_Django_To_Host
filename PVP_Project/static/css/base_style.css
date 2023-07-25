@@ -132,6 +132,9 @@
     margin-bottom: 10px;
 }
 
+.results-label .student-info-wrapper .student-name{
+    font-size: 12px;
+}
 .results-label .student-info-wrapper .student-category{
     font-size: 10px;
     background-color: rgb(230, 230, 230);
