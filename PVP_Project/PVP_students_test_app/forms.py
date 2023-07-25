@@ -1,5 +1,7 @@
 from django import forms
 from .models import Subject, Student, Category, Default_Project_Data
+import string
+import random
 
 
 class Category_form(forms.ModelForm):
@@ -52,4 +54,10 @@ class Student_form(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(Student_form, self).__init__(*args, **kwargs)
-        self.fields['name'].initial = f"Student_{Default_Project_Data.objects.first().max_student_id+1}"
+        random_name = Student_form.generate_random_name(10)
+        self.fields['name'].initial = f"{random_name}"
+
+    def generate_random_name(length):
+
+        letters = string.ascii_letters + string.digits
+        return ''.join(random.choice(letters) for _ in range(length))
