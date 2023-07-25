@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
-from ..models import Student, Subject, Default_Project_Data
+from ..models import Student, Subject
 from ..forms import Student_form
 
 
@@ -40,9 +40,6 @@ def create_student(request):
                 instance.subjects = subject_list
                 instance.save()
 
-                default_project_data_obj = Default_Project_Data.objects.first()
-                default_project_data_obj.max_student_id += 1
-                default_project_data_obj.save()
                 return JsonResponse({'message': 'New Student created'})
             else:
                 return JsonResponse({'message': 'Invalid marks: Please enter all marks between 0 and 100'})

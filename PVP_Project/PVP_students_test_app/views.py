@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
-from .models import Student, Subject, Category, Student_Evaluation_Results, Test_Conditions, Default_Project_Data
+from .models import Student, Subject, Category, Student_Evaluation_Results, Test_Conditions
 from .forms import Subject_form, Student_form, Category_form
 from .evaluations.evaluate_student_result import Evaluate_Results
 from .data_state_handle.default_data_creation import create_default_test_condition, create_default_categories
@@ -42,10 +42,6 @@ def index(request):
 # has some default data in it as soon as the home page loads
 
 def default_data_check():
-
-    if Default_Project_Data.objects.all().count() <= 0:
-        default_project_data = Default_Project_Data(max_student_id=0)
-        default_project_data.save()
 
     if Category.objects.all().count() > 0:
         if (Test_Conditions.objects.all().count() <= 0):

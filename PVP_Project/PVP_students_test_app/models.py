@@ -49,14 +49,3 @@ class Test_Conditions(models.Model):
 
     def __str__(self):
         return f"total_passing_marks: {self.total_passing_marks}"
-
-
-class Default_Project_Data(models.Model):
-    max_student_id = models.IntegerField(default=1)
-
-    def save(self, *args, **kwargs):
-        self.pk = 1
-        super().save(*args, **kwargs)
-
-    def delete(self, *args, **kwargs):
-        pass
