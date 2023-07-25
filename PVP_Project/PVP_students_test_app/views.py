@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from .models import Student, Subject, Category, Student_Evaluation_Results, Test_Conditions
 from .forms import Subject_form, Student_form, Category_form
 from .evaluations.evaluate_student_result import Evaluate_Results
+from .evaluations.evaluation_strategies import Evaluation_Strategy, Evaluate_By_Marks_In_Category, Evaluate_By_Total_Score
 from .data_state_handle.default_data_creation import create_default_test_condition, create_default_categories
 from .data_state_handle.default_data import Default_Category_Colors
 
@@ -23,7 +24,13 @@ def index(request):
     categories = Category.objects.all()
     test_condition = Test_Conditions.objects.first()
 
-    no_of_students_passed = Evaluate_Results().evaluate_all_students()
+    evaluation_strategies = [
+        Evaluate_By_Total_Score(),
+        Evaluate_By_Marks_In_Category()
+    ]
+    no_of_students_passed = Evaluate_Results(
+        evaluation_strategies).evaluate_all_students()
+
     context = {'students': students,
                'categories': categories,
                'subjects': subjects,

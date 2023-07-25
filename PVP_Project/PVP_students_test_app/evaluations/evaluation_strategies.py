@@ -7,6 +7,7 @@ from ..models import Student, Subject, Category, Test_Conditions
 
 
 class Evaluation_Strategy(ABC):
+
     @abstractmethod
     def evaluate(student):
         pass
@@ -16,7 +17,11 @@ class Evaluation_Strategy(ABC):
 
 
 class Evaluate_By_Total_Score(Evaluation_Strategy):
-    def evaluate(student):
+    def __init__(self):
+        pass
+
+    def evaluate(self, student):
+
         try:
             total_passing_marks = Test_Conditions.objects.first().total_passing_marks
 
@@ -36,7 +41,10 @@ class Evaluate_By_Total_Score(Evaluation_Strategy):
 
 
 class Evaluate_By_Marks_In_Category(Evaluation_Strategy):
-    def evaluate(student):
+    def __init__(self):
+        pass
+
+    def evaluate(self, student):
         category_pass_marks = 0
         try:
             test_condition = Test_Conditions.objects.first()
