@@ -27,11 +27,9 @@ class Evaluate_Results:
         return no_of_students_passed
 
     def evaluate_student(self, student):
-        # test_condition1 = Evaluate_By_Total_Score.evaluate(student)
-        # test_condition2 = Evaluate_By_Marks_In_Category.evaluate(student)
+
         has_passed = True
         for strategy in self.evaluation_strategies:
             has_passed = has_passed and strategy.evaluate(student)
 
-        # return test_condition1 and test_condition2
         return has_passed
