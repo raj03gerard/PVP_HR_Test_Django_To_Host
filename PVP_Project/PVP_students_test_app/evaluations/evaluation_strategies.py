@@ -52,14 +52,13 @@ class Evaluate_By_Marks_In_Category(Evaluation_Strategy):
             if subject_data['category'] == student.category.name:
                 marks_list.append(int(subject_data['marks']))
 
-        no_of_subjects = 2 if len(marks_list) >= 2 else 1
-
         is_passing_by_category = Evaluate_By_Marks_In_Category.are_marks_above_passing_marks(
-            marks_list, no_of_subjects, category_pass_marks)
+            marks_list, category_pass_marks)
         return is_passing_by_category
 
-    def are_marks_above_passing_marks(marks_list, no_of_subjects, passing_marks):
-        for comb in combinations(marks_list, no_of_subjects):
-            if (sum(comb) >= passing_marks):
-                return True
-        return False
+    def are_marks_above_passing_marks(marks_list,  passing_marks):
+        marks_sum = sum(marks_list)
+        if marks_sum >= passing_marks:
+            return True
+        else:
+            return False

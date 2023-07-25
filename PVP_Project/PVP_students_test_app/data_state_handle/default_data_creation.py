@@ -7,6 +7,12 @@ import random
 # contains functions to create the default data for the app
 
 def create_default_categories():
+    default_category = Category(name='NONE',
+                                category_passing_marks=0,
+                                color=random.choice(list(Default_Category_Colors)).value)
+
+    default_category.save()
+
     science_category = Category(name='SCIENCE',
                                 category_passing_marks=160,
                                 color=random.choice(list(Default_Category_Colors)).value)
@@ -23,7 +29,7 @@ def create_default_categories():
 
 def create_default_subjects():
     english = Subject(name='English',
-                      category=Category.objects.get(name='HUMANITIES'))
+                      category=Category.objects.get(name='NONE'))
     english.save()
     maths = Subject(name='Maths',
                     category=Category.objects.get(name='SCIENCE'))
