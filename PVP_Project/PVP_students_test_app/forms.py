@@ -1,5 +1,5 @@
 from django import forms
-from .models import Subject, Student, Category
+from .models import Subject, Student, Category, Default_Project_Data
 
 
 class Category_form(forms.ModelForm):
@@ -52,8 +52,4 @@ class Student_form(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(Student_form, self).__init__(*args, **kwargs)
-        self.fields['name'].initial = f"Student_{get_total_students()+1}"
-
-
-def get_total_students():
-    return Student.objects.all().count()
+        self.fields['name'].initial = f"Student_{Default_Project_Data.objects.first().max_student_id+1}"
