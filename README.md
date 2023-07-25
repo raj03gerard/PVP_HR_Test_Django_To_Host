@@ -1,6 +1,6 @@
 # PVP Project Documentation
 
-The PVP project is developed using **Python** and the **Django framework**. It utilizes **Python** for backend functionality, **HTML/CSS/JS** for the frontend, and **SQLite** database for data storage.
+This project is developed using **Python** and the **Django framework**. It utilizes **Python** for backend functionality, **HTML/CSS/JS** for the frontend, and **SQLite** database for data storage.
 
 ## The database operations might be a little slow because of the hosting platform. Please excuse any inconvenience caused by it
 
