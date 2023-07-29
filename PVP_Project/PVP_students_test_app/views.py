@@ -4,7 +4,7 @@ from .models import Student, Subject, Category, Student_Evaluation_Results, Test
 from .forms import Subject_form, Student_form, Category_form
 from .evaluations.evaluate_student_result import Evaluate_Results
 from .evaluations.evaluation_strategies import Evaluation_Strategy, Evaluate_By_Marks_In_Category, Evaluate_By_Total_Score
-from .data_state_handle.default_data_creation import create_default_test_condition, create_default_categories
+from .data_state_handle.default_data_creation import create_default_test_condition, create_default_categories, create_default_subjects
 from .data_state_handle.default_data import Default_Category_Colors
 
 # The starting point for the execution of the app, that handles
@@ -56,6 +56,7 @@ def default_data_check():
 
     else:
         create_default_categories()
+        create_default_subjects()
         create_default_test_condition()
 
 

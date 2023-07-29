@@ -24,7 +24,7 @@ def create_default_categories():
                                    color=random.choice(list(Default_Category_Colors)).value)
     humanities_category.save()
     print(humanities_category)
-    create_default_subjects()
+
 
 
 def create_default_subjects():
